@@ -1,0 +1,23 @@
+spring:
+  ai:
+    google:
+      genai:
+        api-key: test-key
+        embedding:
+          api-key: test-key
+    vectorstore:
+      type: none
+    model:
+      audio:
+        speech: none
+        transcription: none
+  datasource:
+    url: jdbc:h2:mem:enterprise_rag_test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false

@@ -1,0 +1,45 @@
+server:
+  port: 9000
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  ai:
+    model:
+      chat: google-genai
+      embedding:
+        text: google-genai
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY}
+        chat:
+          model: gemini-2.5-flash
+        embedding:
+          api-key: ${GEMINI_API_KEY}
+          text:
+            model: gemini-embedding-001
+            options:
+              output-dimensions: 3072
+    vectorstore:
+      type: pgvector
+      pgvector:
+        initialize-schema: true
+        dimensions: 3072
+        index-type: NONE
+        distance-type: COSINE_DISTANCE
+  application:
+    name: enterprise-knowledge-assistant
+  datasource:
+    url: jdbc:postgresql://localhost:5432/enterprise_rag
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
