@@ -1,15 +1,15 @@
-package com.enterprise.knowledgeassistant.adapter.ai.chat;
+package com.enterprise.knowledgeassistant.adapter.ai.ragChat;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class SpringAiChatClient implements ChatClient {
+public class RagAiChatClient implements ChatClient {
 
     private final org.springframework.ai.chat.client.ChatClient chatClient;
 
-    public SpringAiChatClient(
+    public RagAiChatClient(
             org.springframework.ai.chat.client.ChatClient.Builder chatClientBuilder) {
 
         this.chatClient = chatClientBuilder.build();
