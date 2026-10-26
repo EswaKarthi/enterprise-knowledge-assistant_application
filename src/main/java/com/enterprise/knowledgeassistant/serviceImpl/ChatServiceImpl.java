@@ -1,6 +1,6 @@
 package com.enterprise.knowledgeassistant.serviceImpl;
 
-import com.enterprise.knowledgeassistant.adapter.ai.chat.ChatClient;
+import com.enterprise.knowledgeassistant.adapter.ai.ragChat.ChatClient;
 import com.enterprise.knowledgeassistant.dto.request.ChatRequest;
 import com.enterprise.knowledgeassistant.dto.response.ChatResponse;
 import com.enterprise.knowledgeassistant.service.ChatService;

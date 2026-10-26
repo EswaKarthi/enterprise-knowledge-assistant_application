@@ -22,6 +22,6 @@ public class RetrievalServiceImpl implements RetrievalService {
                     "Search query must not be empty");
         }
 
-        return pgVectorStoreAdapter.similaritySearch(query, 5);
+        return pgVectorStoreAdapter.similaritySearch(query, 3);
     }
 }
