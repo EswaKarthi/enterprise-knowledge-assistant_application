@@ -2,6 +2,7 @@ package com.enterprise.knowledgeassistant.adapter.ai.vector;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.stereotype.Component;
 
@@ -30,4 +31,16 @@ public class PgVectorStoreAdapter {
 
         vectorStore.add(documents);
     }
+
+
+    public List<Document> similaritySearch(String query, int topK) {
+
+        SearchRequest searchRequest = SearchRequest.builder()
+                .query(query)
+                .topK(topK)
+                .build();
+
+        return vectorStore.similaritySearch(searchRequest);
+    }
+
 }
