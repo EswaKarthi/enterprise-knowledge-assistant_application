@@ -2,6 +2,7 @@ package com.enterprise.knowledgeassistant.agent.tools;
 
 import com.enterprise.knowledgeassistant.service.RetrievalService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class CandidateSearchTool {
 
     private final RetrievalService retrievalService;
@@ -29,7 +31,9 @@ public class CandidateSearchTool {
 
         List<Document> documents =
                 retrievalService.retrieveRelevantChunks(query);
-
+        log.info(
+                "Candidate search tool calling initiated"
+        );
         return documents.stream()
                 .map(Document::getText)
                 .toList();
